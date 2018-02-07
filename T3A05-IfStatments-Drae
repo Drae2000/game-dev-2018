@@ -1,0 +1,23 @@
+<link rel="icon" type="image/png" href="crome.png" sizes="32x32">
+<title>T3A05-Java-Drae</title>
+Enter your age:
+<input type=text id="myIn" value=20>
+
+<input type=button value="Solve" onClick="{
+myTemp=''
+
+for (myLoop=1; myLoop <= document.all.myIn.value; myLoop++){
+     myTemp+='<br> At age '+myLoop
+     if((myLoop >= 0)&&(myLoop <= 4)){myTemp += ' You were a Baby'}
+     if((myLoop >= 5)&&(myLoop <= 12)){myTemp += ' You were a Child'}
+     if((myLoop >= 13)&&(myLoop <= 17)){myTemp += ' You became a Teenager'}
+     if((myLoop >= 18)&&(myLoop <= 64)){myTemp += ' You became an Adult'}
+     if((myLoop >= 65)&&(myLoop <= 99)){myTemp += ' You became a Senior'}
+     if((myLoop >= 100)){myTemp += ' You are Dead'}
+}
+
+
+getElementById('myOut').innerHTML = myTemp
+}">
+
+<div id="myOut"> Output Here </div>
