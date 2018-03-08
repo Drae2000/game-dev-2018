@@ -1,0 +1,60 @@
+<h2 align=center>Functions by Drae </h2>
+<script>
+function myGaurdian(myX){
+    
+    alert('your ' + myX + ' are dirty')
+    
+}
+
+
+
+
+</script>
+
+<input type=button value="where are my socks" onclick="{
+     myGaurdian('socks')
+}">
+
+
+
+<input type=button value="where are my shoes" onclick="{
+     myGaurdian('shoes')
+}">
+
+
+<input type=button value="inline function" onclick="{
+   (function () {
+     alert('inline works')
+   })()
+}">
+
+<input type=button value="where are my glasses" onclick="{
+   (function () {
+     alert('they are on the table')
+   })()
+}">
+
+<input type=button value="what are you doing today" onclick="{
+   (function () {
+     alert('i am going for a run')
+   })()
+}">
+
+<input type=button value="how are you" onclick="{
+   (function () {
+     alert('i am good')
+   })()
+}">
+
+<input type=button value="where is the remote" onclick="{
+   (function () {
+     alert('on the couch')
+   })()
+}">
+
+<input type=button value="goodbye" onclick="{
+   (function () {
+     alert('bye')
+   })()
+}">
+
