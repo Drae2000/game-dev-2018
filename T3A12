@@ -1,0 +1,32 @@
+<h2 align=center>Arrays by Drae</h2>
+First button sets and shows the myStuff array.
+Second button sets and shows the myRandom array.<br>
+
+<input type=button value="Run myStuff" onclick="
+
+  myStuff = new Array()
+  myStuff[0] = 'Cell phone <br>'
+  myStuff[1] = 'Shoes<br>' 
+  myStuff[2] = 'Shirt<br>' 
+  myStuff[3] = 'Scarf<br>' 
+  myStuff[4] = 'Hat<br>' 
+  myStuff[5] = 'Sweater<br>' 
+  myStuff[6] = 'Pants<br>'
+  myStuff[7] = 'Socks<br>'
+  myStuff[8] = 'Trench Coat<br>'
+  myStuff[9] = 'Ski Mask<br>'
+
+  document.getElementById('myDiv01').innerHTML = myStuff 
+  
+"><br><br>
+
+
+<input type=text id="myText01" value= 3><br>
+<input type=button value="Run myRandom" onclick="
+  alert(Math.floor(Math.random() * 9) + 1)
+   
+"><br>
+
+<id id="myDiv01"></div>
+
+
