@@ -1,6 +1,6 @@
-T3A13-Console.log-fred  
+T3A13-Console.log-Drae 
 
-<h2 align=center> Console commands by Fred</h2> 
+<h2 align=center> Console commands by Drae</h2> 
 
 ctrl-shift-i to activate console<br><br> 
 
@@ -37,6 +37,103 @@ or <br>
 }"><br> 
 
   
+<input type=button value="console.info" onclick="{ 
+
+   console.info('You have 0GB of dedicated RAM')
+
+}"><br> 
+
+
+<input type=button value="console.warn" onclick="{ 
+
+   console.warn('look out') 
+
+}"><br> 
+
+
+<input type=button value="console.error" onclick="{ 
+
+   console.error('You have a wirus') 
+
+}"><br> 
+
+
+<input type=button value="console.trace" onclick="{ 
+
+   console.trace() 
+
+}"><br> 
+
+
+<input type=button value="console.time" onclick="{ 
+
+   console.time('Test loop')
+   for(x=0;  x<= 50000; x++) {y=x}
+   console.timeEnd('Test loop')
+}"><br> 
+
+
+<input type=button value="console.memory" onclick="{ 
+
+   console.error(console.memory) 
+
+}"><br> 
+
+
+<input type=button value="console.profile" onclick="{ 
+
+   console.profile('Test profile')
+   // do stuff and see if it ends
+   console.profileEnd('Test profile')
+}"><br> 
+
+
+<input type=button value="console.assert(true)" onclick="{ 
+
+   console.assert(true, 'do not log this') 
+
+}"><br> 
+
+
+<input type=button value="console.assert(false)" onclick="{ 
+
+   console.assert(false, 'log this') 
+
+}"><br> 
+
+
+<input type=button value="console.group" onclick="{ 
+   console.group('1') 
+   console.group('2') 
+   console.groupEnd('2')  
+   console.groupEnd('1')
+
+}"><br> 
+
+
+<input type=button value="console.count" onclick="{ 
+
+   for(myLoop=0; myLoop<=4; myLoop++){
+   console.count('Counting')
+ }
+}"><br>  
+
+
+<input type=button value="console.clear()" onclick="{ 
+
+   console.clear() 
+
+}"><br> 
+
+
+<input type=button value="console.table()" onclick="{ 
+
+   for(myLoop=0; myLoop<=4; myLoop++){
+   console.table([{name: 'Drae', age:myLoop}])
+ }
+}"><br><br><br><br>  
+
+
 
   
 
