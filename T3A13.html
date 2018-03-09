@@ -69,6 +69,12 @@ or <br>
 
    console.time('Test loop')
    for(x=0;  x<= 50000; x++) {y=x}
+}"><br> 
+
+
+<input type=button value="console.timeEnd" onclick="{ 
+
+   
    console.timeEnd('Test loop')
 }"><br> 
 
@@ -84,6 +90,10 @@ or <br>
 
    console.profile('Test profile')
    // do stuff and see if it ends
+}"><br> 
+
+<input type=button value="console.profileEnd" onclick="{ 
+
    console.profileEnd('Test profile')
 }"><br> 
 
@@ -105,11 +115,14 @@ or <br>
 <input type=button value="console.group" onclick="{ 
    console.group('1') 
    console.group('2') 
+
+}"><br> 
+
+<input type=button value="console.groupEnd" onclick="{ 
    console.groupEnd('2')  
    console.groupEnd('1')
 
 }"><br> 
-
 
 <input type=button value="console.count" onclick="{ 
 
