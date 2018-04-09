@@ -1,0 +1,105 @@
+<script>
+
+
+function myHitOther(my1, my2){
+
+
+   left1   = parseInt(document.getElementById(my1).style.left)
+   right1  = left1 + parseInt(document.getElementById(my1).style.width)
+   top1    = parseInt(document.getElementById(my1).style.top)   
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+
+
+   left2   = parseInt(document.getElementById(my2).style.left)
+   right2  = left2 + parseInt(document.getElementById(my2).style.width)
+   top2    = parseInt(document.getElementById(my2).style.top)   
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
+
+
+   if ((right1  >=  left2  ) &&      	   
+       (bottom1 >=  top2   ) &&
+       (left1   <=  right2 ) &&
+       (top1    <=  bottom2) ){
+       return true
+   }
+}
+
+
+
+
+
+
+
+
+function myMove(x, y){
+   document.getElementById('move1').style.left =  parseInt(document.getElementById('move1').style.left) + x + 'px'  
+   document.getElementById('move1').style.top =  parseInt(document.getElementById('move1').style.top) + y + 'px'  
+   if ( myHitOther('move1', 'move2') ){
+       document.getElementById('myOut1').innerHTML ='Ouch!'
+       
+   }
+   
+}
+
+</script>
+
+
+
+
+
+
+<body onMouseMove="{
+   document.getElementById('myOut1').innerHTML = 'x='+event.screenX+', y='+ event.screenY
+}"
+
+
+onkeydown="{
+  document.getElementById('myOut1').innerHTML = String.fromCharCode(event.keyCode) + ' = ' + event.keyCode
+  
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'D'){ myMove(3,0) }
+ 
+  if (event.keyCode == 65){ myMove(-3,0) } // for arrow keys
+  
+   if (event.keyCode == 87){ myMove(0,-3) } // for arrow keys
+   
+    if (event.keyCode == 83){ myMove(0,3) } // for arrow keys
+    
+    
+    
+    document.getElementById('move2').innerHTML = String.fromCharCode(event.keyCode) + ' = ' + event.keyCode
+  
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'L'){ document.getElementById('move2').style.left  = parseInt(document.getElementById('move2').style.left)+5+'px'; checkAll();}   // small 'L' key go right
+ 
+ 
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'J'){ document.getElementById('move2').style.left  = parseInt(document.getElementById('move2').style.left)-5+'px'; checkAll();}   // small 'J' key go left
+ 
+
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'I'){ document.getElementById('move2').style.top  = parseInt(document.getElementById('move2').style.top)-5+'px'; checkAll();}   // small 'I' key go up
+ 
+  
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'K'){ document.getElementById('move2').style.top  = parseInt(document.getElementById('move2').style.top)+5+'px'; checkAll();}   // small 'K' key go down
+  
+ 
+ 
+ 
+ 
+  }">
+
+    
+
+
+<img  id="move1"  src="https://vignette.wikia.nocookie.net/slimerancher/images/4/4d/Sanic.png/revision/latest?cb=20170328013801"  style="position:absolute; width:70px; height:70px; left:40px; top:50px" />  
+ 
+<img  id="move2"  src="http://www.pngmart.com/files/2/Flash-PNG-Photos.png" style="position:absolute; width:70px; height:70px;  left:150px; top:40px;" />
+
+
+<br><br><br><br><br><br><br><br>
+<div id="myOut1">Use Arrow Keys </div>
+
+
+</body>
+
+
+
+
+<body style="background-color:grey;">
