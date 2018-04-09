@@ -1,4 +1,4 @@
-<h2 align=center>Arrays by Drae</h2>
+<h2 align=center>Arrays by John</h2>
 First button sets and shows the myStuff array.
 Second button sets and shows the myRandom array.<br>
 
@@ -21,12 +21,78 @@ Second button sets and shows the myRandom array.<br>
 "><br><br>
 
 
-<input type=text id="myText01" value= 3><br>
-<input type=button value="Run myRandom" onclick="
-  alert(Math.floor(Math.random() * 9) + 1)
+Loop this amount <input type=text id="myText01" size=6 value= 5><br> 
+
+<input type=button value="Run myRandom" onclick=" 
+
+  
+
+    myRandomNumber = new Array() 
+
+  
+
+  
+
+    myRandomNumber[0] =  Math.floor(Math.random()*9+1) 
+
+  
+
+   myTemp = 0
+
+   myValue = parseInt(document.getElementById('myText01').value) 
    
-"><br>
+   for (myLoop=1; myLoop <= myValue; myLoop++){
+  
+    document.getElementById('myDiv02').innerHTML +=  Math.floor(Math.random()*9+1) + ' <br>' 
+
+  }
+
+  
+
+  
+
+// sort the values 
+
+    for (myLoop=0; myLoop <= 7; myLoop++ ){ 
+
+       if (myRandomNumber[myLoop]  > myRandomNumber[myLoop + 1] ){ 
+
+           myTemp = myRandomNumber[myLoop] // you finish two more lines 
+
+     
+           
+
+             
+
+       } 
+
+   }   
+
+  
+
+  
+
+  
+
+// print them again 
+
+  
+ 
+
+  
+
+"><br> 
+
+  
+
+<div id="myDiv02"></div> 
+
 
 <id id="myDiv01"></div>
+
+
+
+
+
 
 
