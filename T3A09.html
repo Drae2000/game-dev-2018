@@ -2,7 +2,8 @@
 <script>
 function myGaurdian(myX){
     
-    alert('your ' + myX + ' are dirty')
+    document.getElementById('myDiv01').innerHTML +=
+    ( myX + '<br>')
     
 }
 
@@ -12,49 +13,50 @@ function myGaurdian(myX){
 </script>
 
 <input type=button value="where are my socks" onclick="{
-     myGaurdian('socks')
+     myGaurdian('your socks are in the dryer')
 }">
 
 
 
 <input type=button value="where are my shoes" onclick="{
-     myGaurdian('shoes')
+     myGaurdian('your shoes are in the garage')
 }">
 
 
 <input type=button value="inline function" onclick="{
-   (function () {
-     alert('inline works')
-   })()
+   
+     myGaurdian('inline works')
+ 
 }">
 
 <input type=button value="where are my glasses" onclick="{
-   (function () {
-     alert('they are on the table')
-   })()
-}">
+   
+    myGaurdian('they are on the table')
+    
+ }">
 
 <input type=button value="what are you doing today" onclick="{
-   (function () {
-     alert('i am going for a run')
-   })()
+   
+     myGaurdian('i am going for a run')
+ 
 }">
 
 <input type=button value="how are you" onclick="{
-   (function () {
-     alert('i am good')
-   })()
+   
+     myGaurdian('i am good')
+   
 }">
 
 <input type=button value="where is the remote" onclick="{
-   (function () {
-     alert('on the couch')
-   })()
+   
+     myGaurdian('on the couch')
+   
 }">
 
 <input type=button value="goodbye" onclick="{
-   (function () {
-     alert('bye')
-   })()
+   
+     myGaurdian('bye')
+   
 }">
 
+<div id="myDiv01">...</div>
