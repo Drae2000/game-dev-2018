@@ -134,94 +134,100 @@ audio {
 }</style><body>
 
 
-
 <br><br><br><br><br>
 
 
 
 <br><br><br><br><br>
-<h1>A very simple webpage. This is an "h1" level header.</h1>
+<input type=button value="H1" onclick="{
 
-<h2>This is a level h2 header.</h2>
+    document.getElementById('myDiv01').innerHTML += '<h1>A very simple webpage. This is an h1 level header.</h1>'
+   
+}">
+<input type=button value="H2" onclick="{
 
-<h6>This is a level h6 header.  Pretty small!</h6>
+    document.getElementById('myDiv01').innerHTML += '<h2>This is a level h2 header.</h2>'
+   
+}">
 
-<p>This is a standard paragraph.</p>
 
-<p align="center">Now I've aligned it in the center of the screen.</p>
+<input type=button value="H6" onclick="{
 
-<p align="right">Now aligned to the right</p>
+    document.getElementById('myDiv01').innerHTML += '<h6>A very simple webpage. This is an h6 level header.</h1>'
+   
+}">
+<input type=button value="Paragraph" onclick="{
 
-<p><b>Bold text</b></p>
+    document.getElementById('myDiv01').innerHTML += '<p>This is a standard paragraph.</p>'
+   
+}">
 
-<p><strong>Strongly emphasized text</strong>  Can you tell the difference vs. bold?</p>
 
-<p><i>Italics</i></p>
 
-<p><em>Emphasized text</em>  Just like Italics!</p>
+<input type=button value="Bold text" onclick="{
 
-<p>Here is a pretty picture: <img src="example/prettypicture.jpg" alt="Pretty Picture"></p>
+    document.getElementById('myDiv01').innerHTML += '<p><b>Bold text</b></p>'
+   
+}">
 
-<p>Same thing, aligned differently to the paragraph: <img align="top" src="example/prettypicture.jpg" alt="Pretty Picture"></p>
+<input type=button value="Italic text" onclick="{
+
+    document.getElementById('myDiv01').innerHTML += '<p><i>Italics</i></p>'
+   
+}">
+
+<input type=button value="Emphasized text" onclick="{
+
+    document.getElementById('myDiv01').innerHTML += '<p><em>Emphasized text</em>  Just like Italics!</p>'
+   
+}">
+
+<input type=button value="Unordered List" onclick="{
+
+    document.getElementById('myDiv01').innerHTML += '<h2>Unordered list!</h2>'
+    document.getElementById('myDiv01').innerHTML += '<ol>'
+    document.getElementById('myDiv01').innerHTML += '<li>This little piggy went to market</li>'
+    document.getElementById('myDiv01').innerHTML += '<li>This little piggy went to SB228 class</li>'
+    document.getElementById('myDiv01').innerHTML += '<li>This little piggy went to an expensive restaurant in Downtown Palo Alto</li>'
+    document.getElementById('myDiv01').innerHTML += '<li>This little piggy ate too much at Indian Buffet.</li>'
+    document.getElementById('myDiv01').innerHTML += '</ol>'
+}">
+
+
+
+<script type="text/javascript">
+<!--
+    function showImage(){
+        document.getElementById('loadingImage').style.visibility="visible";
+    }
+
+    -->
+
+    </script>
+    </head>
+<body>
+    <input type="button" value="Show Image" onclick="showImage();"/><br>
+    <img id="loadingImage" src="http://i.cdn.turner.com/tbseurope/big/ben10_2017/181217/images/home/home_cannonbolt.png" style="visibility:hidden"/>
+
+</body>
 
 <hr>
 
-<h2>How about a nice ordered list!</h2>
-<ol>
-  <li>This little piggy went to market
-  </li><li>This little piggy went to SB228 class
-  </li><li>This little piggy went to an expensive restaurant in Downtown Palo Alto
-  </li><li>This little piggy ate too much at Indian Buffet.
-  </li><li>This little piggy got lost
-</li></ol>
 
-<h2>Unordered list</h2>
-<ul>
-  <li>First element
-  </li><li>Second element
-  </li><li>Third element
-</li></ul>
 
-<hr>
 
-<h2>Nested Lists!</h2>
-<ul>
-  <li>Things to to today:
-    <ol>
-      <li>Walk the dog
-      </li><li>Feed the cat
-      </li><li>Mow the lawn
-    </li></ol>
-  </li><li>Things to do tomorrow:
-    <ol>
-      <li>Lunch with mom
-      </li><li>Feed the hamster
-      </li><li>Clean kitchen
-    </li></ol>
-</li></ul>
-<h2>Tables</h2>
-<table border="1">
-<tr>
-<th>Column 1</th>
-<th>Column 2</th>
-<th>Column 3</th>
-<th>Column 4</th>
-</tr>
-<tr><td rowspan="2">Row 1 Cell 1</td><td>Row 1 Cell 2</td><td>Row 1 Cell 3</td><td>Row 1 Cell 4</td></tr>
-<tr><td>Row 2 Cell 2</td><td>Row 2 Cell 3</td><td>Row 2 Cell 4</td></tr>
-<tr><td colspan="4">Row 3 Cell 1</td></tr>
-</table><br>
-<h2>Forms</h2>
-<form name="myForm01">
-    Enter your first name: <input type=text value="" placeholder="Drae"><br>
-    Enter a password: <input type="password"><br>
-    <input type="submit"><br>
-    
-    
-</form>
-<p>And finally, how about some <a href="http://www.yahoo.com/">Links?</a></p>
+<div id="myDiv01" ></div>
 
-<p>Or let's just link to <a href="../../index.html">o back</a></p>
+<input type="button" onclick="location.href='http://google.com';" value="Go to Google" />
+<input type="button" onclick="location.href='https://ca.yahoo.com/?p=us';" value="Go to Yahoo" />
+<br>
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 
 
 
