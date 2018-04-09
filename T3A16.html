@@ -1,0 +1,117 @@
+<style>
+  body {
+    background: url(giphy.gif) repeat;
+    -webkit-animation: loader 10s steps(100) infinite;
+    -moz-animation: loader 10s steps(100) infinite;
+    -ms-animation: loader 10s steps(100) infinite;
+    -o-animation: loader 10s steps(100) infinite;
+    animation: loader 10s steps(100) infinite;
+}
+
+@-webkit-keyframes loader {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -1600px 0;
+  }
+}
+@-moz-keyframes loader {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -1600px 0;
+  }
+}
+@-ms-keyframes loader {                                                                                                                                                                                                                       -
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -1600px 0;
+  }
+}
+@-o-keyframes loader {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -1600px 0;
+  }
+}
+@keyframes loader {
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -16000px 0;
+  }
+}
+</style>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Test Move Object</title>
+
+
+
+       <script type="text/javascript">
+
+            function leftArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.left = parseInt(element.style.left) - 75 + 'px';
+            }
+
+            function rightArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.left = parseInt(element.style.left) + 75 + 'px';
+            }
+
+            function upArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.top = parseInt(element.style.top) - 75 + 'px';
+            }
+
+            function downArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.top = parseInt(element.style.top) + 75 + 'px';
+            }
+
+            function moveSelection(event) {                    
+                switch (event.keyCode) {
+                    case 37:
+                        leftArrowPressed();
+                    break;
+
+                    case 39:
+                        rightArrowPressed();
+                    break;
+
+                    case 38:
+                        upArrowPressed();
+                    break;
+
+                    case 40:
+                        downArrowPressed();
+                    break;
+                }
+            };
+
+        function gameLoop()
+        {
+            // change position based on speed
+            moveSelection();
+            setTimeout("gameLoop()",10);
+        }
+
+  </script>
+  </head>
+
+  <body onload="gameLoop();" onkeydown="" onkeyup="moveSelection(event)" bgcolor='yellow'>
+   t3a17-scroll-image.
+  <img id="image1" src="http://www.pngmart.com/files/3/Spaceship-PNG-Photos.png" style="position: absolute; left: 15; right: 15; top: 90; bottom: auto; " height="100" width="150">
+  </body>
+Use arrow keys
+</html>
