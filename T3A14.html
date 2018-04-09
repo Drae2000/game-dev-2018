@@ -1,0 +1,44 @@
+<script>
+
+class myAnimal  {
+   constructor(passName, passAge, passColor)  {
+      this.myName = passName;
+      this.myAge = passAge;
+      this.myColor = passColor;
+   }
+   
+   myShow(){
+       document.getElementById('myDiv01').innerHTML += 'Hello '+ this.myName + ' Age '+ this.myAge + ' Who is'+ this.myColor + '<br>'
+   }
+   
+}
+
+
+</script>
+
+
+<input type=button value="Activate Dog" onclick="{
+
+   myDog = new myAnimal('Snickers', 5,' Black')
+   myDog.myShow()
+   
+}">
+
+<input type=button value="Activate Cat" onclick="{
+
+   myCat = new myAnimal('Garfield', 6,' Orange')
+   myCat.myShow()
+   
+}">
+
+<input type=button value="Array of Pets" onclick="{
+
+   myDog = new myAnimal('Snickers', 5,' Black')
+   myDog.myShow()
+
+   myCat = new myAnimal('Garfield', 6,' Orange')
+   myCat.myShow()
+   
+}">
+
+<div id="myDiv01">...<br></div><br>
