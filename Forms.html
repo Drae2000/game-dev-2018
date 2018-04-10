@@ -133,125 +133,104 @@ audio {
 	}
 }</style><body>
 
+<h1>T3A04-Forms-Click-Drae</h1><br>
 
+<input type=button value="Name" onclick="{
 
-<h2>Forms</h2>
-<form name="myForm01">
-    Enter your first name: <input type=text value="" placeholder="Drae"><br>
-    Enter a password: <input type="password"><br>
-    <input type="reset" value="Reset">
-    <input type="submit"><br>
-    
-    
-</form>
-<form>
-  <input type="radio" name="gender" value="male" checked> Male<br>
-  <input type="radio" name="gender" value="female"> Female<br>
-  <input type="radio" name="gender" value="other"> Other
-</form>
-Click if you belive you are awesome: <input type="checkbox" id="myCheck"  onclick="myFunction()">
-
-<h2><p id="text" style="display:none">You are awesome!</p></h2>
-
-<script>
-function myFunction() {
-    var checkBox = document.getElementById("myCheck");
-    var text = document.getElementById("text");
-    if (checkBox.checked == true){
-        text.style.display = "block";
-    } else {
-       text.style.display = "none";
-    }
-}
-</script>
-
-<style>
-.slidecontainer {
-    width: 100%;
-}
-
-.slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 15px;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
-
-.slider:hover {
-    opacity: 1;
-}
-
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-}
-</style>
-</head>
-<body>
-
-<h1>How happy are you on a scale of 1-100?</h1>
-
-<div class="""slidecontainer">
-  <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-  <p>Value: <span id="demo"></span></p>
-</div>
-
-<script>
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
-
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-</script>
-
-<form action="/action_page.php">
-  Select a file: <input type="file" name="img">
-  <input type="submit">
-</form>
-<form action="/action_page.php">
-  Search Google: <input type="search" name="googlesearch"><br>
-  <input type="submit">
-</form>
-
-<form action="/action_page.php">
-  Select your favorite color: <input type="color" name="favcolor"><br>
-</form>
-
-<textarea rows="4" cols="50">
-Hey guess what, you can type here and strech this box.
-</textarea>
+    document.getElementById('myDiv01').innerHTML +=
+    '<input type=text value= Drae>' + '<br>'
+   
+}">
 <br>
-Who is your favorite student?
-<select>
-  <option value="volvo">Drae</option>
-  <option value="saab">John</option>
-  <option value="opel">Nick</option>
-  <option value="audi">Ryan</option>
-</select>
+<input type=button value="Passward" onclick="{
+
+    document.getElementById('myDiv01').innerHTML +=
+    '<input type=password><br>'
+   
+}">
+<br>
+
+<input type=button value="Submit" onclick="{
+
+    document.getElementById('myDiv01').innerHTML +=
+    '<input type=submit><br>'
+   
+}">
+  <br>  
+  
+  <input type=button value="Reset" onclick="{
+
+    document.getElementById('myDiv01').innerHTML +=
+    '<input type=reset value=Reset><br>'
+   
+}">
+
+<br>
+    
+    <input type=button value="Radio" onclick="{
+
+    document.getElementById('myDiv01').innerHTML +=
+ '<input type=radio name=myRad > ' + ' Male <input type=radio name=myRad> ' + ' Female <input type=radio name=myRad> ' + ' Other <br>'
+   
+}">
+ <br>
 
 
-  </div>
-</div>
+
+
+<input type=button value="RangeSlider" onclick="{
+
+    document.getElementById('myDiv01').innerHTML +=
+ '<input type=range value=3 Max=100><br>'
+   
+}">
+ <br>
+ 
+ 
+  <input type=button value="checkBox" onclick="{
+
+    document.getElementById('myDiv01').innerHTML +=
+    '<input id=checkBox type=checkbox>'
+   
+}">
+<br>
+
+
+
+
+<input type=button value="TextArea" onclick="{
+
+    document.getElementById('myDiv01').innerHTML +=
+ '<textarea rows=5 cols=70 nowrap>Wow</textarea><br>'
+   
+}">
+ <br>
+ 
+ <input type=button value="Choose File" onclick="{
+
+    document.getElementById('myDiv01').innerHTML +=
+ '<input name=myFile type=file><br>'
+   
+}">
+
+
+
+
+
+<br>
+
+
+
+ <input type=button value="DropMenu" onclick="{
+
+    document.getElementById('myDiv01').innerHTML +=
+ '<select>' + '<option value=volvo>Drae</option>' + ' <option value=saab>John</option>' + ' <option value=opel>Nick</option>' + ' <option value=audi>Ryan</option> '
+   
+}">
+
+</body>
+<br><br><br>
+<div id="myDiv01"></div>
 
 </body>
 </body>
