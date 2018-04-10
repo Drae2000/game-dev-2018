@@ -1,23 +1,126 @@
-<link rel="icon" type="image/png" href="crome.png" sizes="32x32">
-<title>T3A05-Java-Drae</title>
-Enter your age:
-<input type=text id="myIn" value=20>
-
-<input type=button value="Solve" onClick="{
-myTemp=''
-
-for (myLoop=1; myLoop <= document.all.myIn.value; myLoop++){
-     myTemp+='<br> At age '+myLoop
-     if((myLoop >= 0)&&(myLoop <= 4)){myTemp += ' You were a Baby'}
-     if((myLoop >= 5)&&(myLoop <= 12)){myTemp += ' You were a Child'}
-     if((myLoop >= 13)&&(myLoop <= 17)){myTemp += ' You became a Teenager'}
-     if((myLoop >= 18)&&(myLoop <= 64)){myTemp += ' You became an Adult'}
-     if((myLoop >= 65)&&(myLoop <= 99)){myTemp += ' You became a Senior'}
-     if((myLoop >= 100)){myTemp += ' You are Dead'}
-}
+<h1 align=center>If statements by Drae</h1>
+Enter X:
+<input type=text id="myIn" value=20><br>
 
 
-getElementById('myOut').innerHTML = myTemp
+
+<input type=button value="if x < 6" onclick="{
+
+myTemp = ''
+
+x = document.all.myIn.value
+
+if (x > 6){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 6 <br>' }
+
+else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 6 <br>' }
+
+document.getElementById('myDiv01').innerHTML = myTemp
+
 }">
 
-<div id="myOut"> Output Here </div>
+<input type=button value="if x < 9" onclick="{
+
+myTemp = ''
+
+x = document.all.myIn.value
+
+if (x > 9){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 9 <br>' }
+
+else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 9 <br>' }
+
+document.getElementById('myDiv01').innerHTML = myTemp
+
+}">
+
+
+<input type=button value="if x < 11" onclick="{
+
+myTemp = ''
+
+x = document.all.myIn.value
+
+if (x > 11){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 11 <br>' }
+
+else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 11 <br>' }
+
+document.getElementById('myDiv01').innerHTML = myTemp
+
+}">
+
+<input type=button value="if x < 13" onclick="{
+
+myTemp = ''
+
+x = document.all.myIn.value
+
+if (x > 13){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 13 <br>' }
+
+else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 13 <br>' }
+
+document.getElementById('myDiv01').innerHTML = myTemp
+
+}">
+
+
+<input type=button value="if x < 19" onclick="{
+
+myTemp = ''
+
+x = document.all.myIn.value
+
+if (x > 19){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 19 <br>' }
+
+else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 19 <br>' }
+
+document.getElementById('myDiv01').innerHTML = myTemp
+
+}">
+
+<input type=button value="if x < 20" onclick="{
+
+myTemp = ''
+
+x = document.all.myIn.value
+
+if (x > 20){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 20 <br>' }
+
+else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 20 <br> <br>' }
+
+document.getElementById('myDiv01').innerHTML = myTemp
+
+}">
+
+
+
+<input type=button value="if x < 30" onclick="{
+
+myTemp = ''
+
+x = document.all.myIn.value
+
+if (x > 30){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 30 <br>' }
+
+else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 30 <br>' }
+
+document.getElementById('myDiv01').innerHTML = myTemp
+
+}">
+
+
+<input type=button value="if x < 50" onclick="{
+
+myTemp = ''
+
+x = document.all.myIn.value
+
+if (x > 50){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 50 <br>' }
+
+else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 50 <br>' }
+
+document.getElementById('myDiv01').innerHTML = myTemp
+
+}">
+
+
+
+<div id="myDiv01"></div>
