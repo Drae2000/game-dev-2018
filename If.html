@@ -1,109 +1,28 @@
-<h1 align=center>If statements by Drae</h1>
-<style>
-    * {
-      font-family: sans-serif;
-      font-weight:bold;
-      color: white;
-      font-size: 30px;
-      text-shadow: 0.09em 0 black, 0 0.09em black, -0.09em 0 black, 0 -0.09em black;
-      background: url(https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg) no-repeat center center fixed; 
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover; 
-      user-select: none;
-      -moz-user-select: none;
-      -webkit-user-drag: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-    }
-</style>
-Enter X:
-<input type=text id="myIn" value=20><br>
+
+
+<h2 align=center>"If" Staements By Drae<h2><br>
 
 
 
-<input type=button value="if x < 6" onclick="{
+X=<input id="myText01" type=text value=8><br> 
+  
+  
+<input type=button value="Test if x>6" onclick="{
+myTemp=''
+x=document.getElementById('myText01').value
+if(x>6){myTemp='larger than 6'}
+    else{myTemp='not greater than 6'}
 
-myTemp = ''
-
-x = document.all.myIn.value
-
-if (x > 6){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 6 <br>' }
-
-else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 6 <br>' }
-
-document.getElementById('myDiv01').innerHTML = myTemp
-
-}">
-
-<input type=button value="if x < 9" onclick="{
-
-myTemp = ''
-
-x = document.all.myIn.value
-
-if (x > 9){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 9 <br>' }
-
-else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 9 <br>' }
-
-document.getElementById('myDiv01').innerHTML = myTemp
+  document.getElementById('myDiv11').innerHTML = myTemp
 
 }">
 
 
-<input type=button value="if x < 11" onclick="{
-
-myTemp = ''
-
-x = document.all.myIn.value
-
-if (x > 11){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 11 <br>' }
-
-else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 11 <br>' }
-
-document.getElementById('myDiv01').innerHTML = myTemp
-
-}">
-
-<input type=button value="if x < 13" onclick="{
-
-myTemp = ''
-
-x = document.all.myIn.value
-
-if (x > 13){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 13 <br>' }
-
-else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 13 <br>' }
-
-document.getElementById('myDiv01').innerHTML = myTemp
-
-}">
-
-
-<input type=button value="if x < 19" onclick="{
-
-myTemp = ''
-
-x = document.all.myIn.value
-
-if (x > 19){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 19 <br>' }
-
-else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 19 <br>' }
-
-document.getElementById('myDiv01').innerHTML = myTemp
-
-}">
-
-<input type=button value="if x < 20" onclick="{
-
-myTemp = ''
-
-x = document.all.myIn.value
-
-if (x > 20){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 20 <br>' }
-
-else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 20 <br> <br>' }
+<h2 align=left><input type=button value="If x>6" onclick="{ 
+myTemp=''
+x=document.getElementById('myText01').value
+if(x>6){myTemp='larger than 6'}
+    else{myTemp='less than 6'}
 
 document.getElementById('myDiv01').innerHTML = myTemp
 
@@ -111,35 +30,108 @@ document.getElementById('myDiv01').innerHTML = myTemp
 
 
 
-<input type=button value="if x < 30" onclick="{
+<input type=button value="If x==6" onclick="{
+myTemp=''
+x=document.getElementById('myText01').value
+if(x==6){myTemp='equal to 6'}
+    else{myTemp='not equal to 6'}
 
-myTemp = ''
-
-x = document.all.myIn.value
-
-if (x > 30){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 30 <br>' }
-
-else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 30 <br>' }
-
-document.getElementById('myDiv01').innerHTML = myTemp
-
-}">
-
-
-<input type=button value="if x < 50" onclick="{
-
-myTemp = ''
-
-x = document.all.myIn.value
-
-if (x > 50){ myTemp += '<font color=Green>' + 'Greater' + '</font>' + ' than 50 <br>' }
-
-else { myTemp += '<font color=Red>' + 'Less' + '</font>' + ' than 50 <br>' }
-
-document.getElementById('myDiv01').innerHTML = myTemp
+document.getElementById('myDiv02').innerHTML = myTemp
 
 }">
 
 
 
-<div id="myDiv01"></div>
+
+<input type=button value="If x>=6" onclick="{
+myTemp=''
+x=document.getElementById('myText01').value
+if(x>=6){myTemp='larger than 6'}
+    else{myTemp='less than 6'}	
+
+document.getElementById('myDiv03').innerHTML = myTemp
+
+}">
+
+
+
+
+<input type=button value="If x<6" onclick="{
+myTemp=''
+x=document.getElementById('myText01').value
+if(x<6){myTemp='less than 6'}
+    else{myTemp='larger than 6'}
+
+document.getElementById('myDiv04').innerHTML = myTemp
+
+}">
+
+
+
+
+<input type=button value="If x<10 and x>6" onclick="{
+myTemp=''
+x=document.getElementById('myText01').value
+if((x<10)&&(x>6)){myTemp='larger than 6'}
+
+document.getElementById('myDiv05').innerHTML = myTemp
+
+}">
+
+
+
+
+<input type=button value="If x<6 or x>6" onclick="{
+myTemp=''
+x=document.getElementById('myText01').value
+if((x=6)||(x>6)){myTemp='larger than 6'}
+    else{myTemp='less than 6'}
+
+document.getElementById('myDiv06').innerHTML = myTemp
+
+}">
+
+
+
+<input type=button value="If x<10 not x>10" onclick="{
+myTemp=''
+x=document.getElementById('myText01').value
+if((x<10)|(x>4)){myTemp='not larger than 10'}
+    else{myTemp='less than 10'}
+
+document.getElementById('myDiv07').innerHTML = myTemp
+
+}">
+
+
+<input type=button value="If x<3 or x>3" onclick="{
+myTemp=''
+x=document.getElementById('myText01').value
+if(x<3){myTemp='less than 20<br>'}
+if(x>3){myTemp='larger than 3<br>'}
+
+document.getElementById('myDiv08').innerHTML = myTemp
+
+}">
+
+
+<input type=button value="If x>10" onclick="{
+myTemp=''
+x=document.getElementById('myText01').value
+if(x>10){myTemp='larger than 10'}
+    else{myTemp='less than 10'}
+
+document.getElementById('myDiv10').innerHTML = myTemp
+
+}">
+
+<div id="myDiv01" ></div>
+<div id="myDiv02" ></div>
+<div id="myDiv03" ></div>
+<div id="myDiv04" ></div>
+<div id="myDiv05" ></div>
+<div id="myDiv06" ></div>
+<div id="myDiv07" ></div>
+<div id="myDiv08" ></div>
+<div id="myDiv10" ></div>
+<div id="myDiv11" ></div>
