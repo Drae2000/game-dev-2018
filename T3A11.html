@@ -1,37 +1,102 @@
+
+
+
+
 <script>
+
 function myCheckKeys(event){
-    
-    document.getElementById('myDiv01').innerHTML += 
-       String.fromCharCode(event.keyCode)
-       
-    if (String.fromCharCode(event.keyCode) == 'A') {
-        document.getElementById('myAnswer').value =
-        parseFloat(document.getElementById('myInput1').value)+
-        parseFloat(document.getElementById('myInput2').value)
-    }   
-    
-//your if staments here
+
+document.getElementById('myDiv01').innerHTML += String.fromCharCode(event.keyCode)
+
+if (String.fromCharCode(event.keyCode) == 'A') {
+
+document.getElementById('myAnswer1').value = parseFloat(document.getElementById('myInput1').value) + parseFloat(document.getElementById('myInput2').value)
+
+}
+
+if (String.fromCharCode(event.keyCode) == 'I') {
+
+document.getElementById('myAnswer2').value = parseInt(document.getElementById('myInput3').value) + parseInt(document.getElementById('myInput4').value)
+
+}
+
+if (String.fromCharCode(event.keyCode) == 'C') {
+
+document.getElementById('myAnswer3').value = String(document.getElementById('myInput5').value) + String(document.getElementById('myInput6').value)
+
+}
+
+
+if (String.fromCharCode(event.keyCode) == 'S') {
+
+document.getElementById('myAnswer4').value = String(document.getElementById('myInput7').value) + String(document.getElementById('myInput8').value)
+
+}
+
+
+
 }
 </script>
 
 <body onKeyDown="{myCheckKeys(event)}">
-<h2 align=center> Storage and Keydown by Drae</h2>
+
+<h2 align=center>Storage and Keydown by Drae</h2>
 
 A floating point number
+
 <input id="myInput1" type=text value=3.14>
-<input id="myInput2" type=text value=3.14>
-<input id="myAnswer" type=text ><br>
-type "A" to ADD them. You make text box for I = Intergers,
-B = Boolean, C = Char and S = String,
 
-<div id="myDiv01">...</div>
+<input id="myInput2" type=text value=3.14> =
 
-<body style="background-color:green;">
-    
-    
-<select onSelect="{alert()}">
-<option value="">
+<input id="myAnswer1" type=text ><br>
+
+
+<input id="myInput3" type=text value=3>
+
+<input id="myInput4" type=text value=3> =
+
+<input id="myAnswer2" type=text ><br>
+
+
+<input id="myInput5" type=text value=Dr>
+
+<input id="myInput6" type=text value=ae> =
+
+<input id="myAnswer3" type=text ><br>
+
+
+<input id="myInput7" type=text value='Hello '>
+
+<input id="myInput8" type=text value=' Mr.Ellis'> = 
+
+<input id="myAnswer4" type=text ><br>
+
+
+
+Type "A" to ADD them. You make text box for I = Integers,
+
+B = Boolean, C = char and S = String
+
+<div id="myDiv01"></div><br><br>
+
+<select onChange="{
+
+if (this.value == 'true') {
+
+document.getElementById('myDiv01').innerHTML += 'That was true<br>'
+
+} else {
+
+document.getElementById('myDiv01').innerHTML += 'That was false<br>'
+
+}
+
+}">
+
+<option >
+
 <option value="true">True
-<option value="fase">False
+
+<option value="false">False
 
 </select>
