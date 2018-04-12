@@ -1,13 +1,5 @@
-<script src="https://unpkg.com/deeplearn@0.4.2/dist/deeplearn.js"> </script> 
-
-<br>  
-    
-<input id="myButton01" type="button" value="Deeplearnjs Version?" onclick="{
-      document.getElementById('myDiv01').innerHTML = 'This version of Deeplearnjs = ' + dl.version                                                           
-}"><br><br>
-
-
-<div id="myDiv01">...</div><br>
+<h2 align= center>Advanced Javascript Buttons by Drae</h2>
+<br>
 
 
 <script src="https://unpkg.com/deeplearn@0.4.2/dist/deeplearn.js"> </script> 
@@ -26,13 +18,58 @@
 }">
        
 
-<div id="myDiv01">...</div><br>
-
+<div id="myDiv01"></div><br>
 
 <script src="https://unpkg.com/deeplearn@0.4.2/dist/deeplearn.js"> </script> 
 
 
 
+
+<input id="myButton02" type="button" value="Inline Async" onclick="{
+                                                                 
+   (async function() {
+
+      const matrixShape = [2, 3];  // 2 rows, 3 columns.
+      const matrix = dl.Array2D.new(matrixShape, [10, 20, 30, 40, 50, 60]);
+      const vector = dl.Array1D.new([0, 1, 2]);
+      const myResult = dl.ENV.math.matrixTimesVector(matrix, vector);
+                                                           
+      document.getElementById('myDiv02').innerHTML = 'Array shape is ' + myResult.shape + ' data is ' + await myResult.data()
+
+   })();
+                                                                 
+}">
+
+
+<div id="myDiv02"></div><br>
+
+<script src="https://unpkg.com/deeplearn@0.4.2/dist/deeplearn.js"> </script> 
+
+
+
+    
+
+
+<input id="myButton01" type="button" value="Async Arrow Functions" onclick="{
+    
+  (async () => {
+
+      const matrixShape = [2, 3];  // 2 rows, 3 columns.
+      const matrix = dl.Array2D.new(matrixShape, [10, 20, 30, 40, 50, 60]);
+      const vector = dl.Array1D.new([0, 1, 2]);
+      const myResult = dl.ENV.math.matrixTimesVector(matrix, vector);
+                                                           
+      document.getElementById('myDiv03').innerHTML = 'Array shape is ' + myResult.shape + ' data is ' + await myResult.data()
+
+  })();       
+       
+}">
+        
+    
+    
+
+
+<div id="myDiv03"></div><br>
 <script>
 
     
@@ -78,26 +115,26 @@ async function myTest01(){
   const myInputs = dl.Array2D.new([3, 3], [1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
   // just show what is in the 2D arrays
-  await myTensorTable('myDiv01', myWeights, 3, 'Weights [3x3]')  
-  await myTensorTable('myDiv01', myInputs, 3, 'Inputs [3x3]')  
+  await myTensorTable('myDiv04', myWeights, 3, 'Weights [3x3]')  
+  await myTensorTable('myDiv04', myInputs, 3, 'Inputs [3x3]')  
    
   // lets flatten an array  
   var myFlat = myInputs.flatten(myInputs)  
-  await myTensorTable('myDiv01', myFlat, 1, 'flatten the 2D Inputs array into a 1D array')    
+  await myTensorTable('myDiv04', myFlat, 1, 'flatten the 2D Inputs array into a 1D array')    
 
    
   // lets try some scalars  
   const myBias    = dl.Scalar.new(2.3);
 
   const myBiasOutput = await myBias.data();
-  document.getElementById('myDiv01').innerHTML += 'Bias Scalar = ' + myBiasOutput + ' <br><hr>'
+  document.getElementById('myDiv04').innerHTML += 'Bias Scalar = ' + myBiasOutput + ' <br><hr>'
 
   // Generic math ability set
   var myAlgorithm = dl.ENV.math
 
   // Try the matMul function for Matrix multiplication
   var  myProduct = myAlgorithm.matMul(myWeights, myInputs)
-  await myTensorTable('myDiv01', myProduct, 3, 'Product of Weights x Inputs')  
+  await myTensorTable('myDiv04', myProduct, 3, 'Product of Weights x Inputs')  
 
 
     
@@ -105,22 +142,22 @@ async function myTest01(){
  const myMatrix1  = dl.Array2D.new([2, 2], [3, 2, 5, 4]);
  const myMatrix2 =  dl.Array2D.new([2, 2], [2, 3, 4, 5]);
 
- await myTensorTable('myDiv01', myMatrix1, 2, 'Table A')  
- await myTensorTable('myDiv01', myMatrix2, 2, 'Table B')  
+ await myTensorTable('myDiv04', myMatrix1, 2, 'Table A')  
+ await myTensorTable('myDiv04', myMatrix2, 2, 'Table B')  
 
 
  
   var  myProduct = myAlgorithm.matMul(myMatrix1, myMatrix2)
-  document.getElementById('myDiv01').innerHTML += ' A * B Matmul 2D = ' + myProduct.getValues()  +'<br>'   
+  document.getElementById('myDiv04').innerHTML += ' A * B Matmul 2D = ' + myProduct.getValues()  +'<br>'   
 
   var  myProduct = myAlgorithm.matMul(myMatrix1, myMatrix2, 'TRANSPOSED', 'REGULAR')
-  document.getElementById('myDiv01').innerHTML += 'A^T * B Matmul 2D = ' + myProduct.getValues()  +'<br>'  
+  document.getElementById('myDiv04').innerHTML += 'A^T * B Matmul 2D = ' + myProduct.getValues()  +'<br>'  
 
   var  myProduct = myAlgorithm.matMul(myMatrix2, myMatrix1)
-  document.getElementById('myDiv01').innerHTML += 'B * A Matmul 2D = ' + myProduct.getValues()  +'<br>' 
+  document.getElementById('myDiv04').innerHTML += 'B * A Matmul 2D = ' + myProduct.getValues()  +'<br>' 
 
   var  myProduct = myAlgorithm.matMul(myMatrix2, myMatrix1, 'REGULAR', 'TRANSPOSED')
-  document.getElementById('myDiv01').innerHTML += ' B * A^T  Matmul 2D = ' + myProduct.getValues()  +'<br><hr>'   
+  document.getElementById('myDiv04').innerHTML += ' B * A^T  Matmul 2D = ' + myProduct.getValues()  +'<br><hr>'   
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////  
@@ -130,23 +167,23 @@ async function myTest01(){
  const i = new dl.Array1D.new([0.1, 0.8])
  const b = dl.Scalar.new(2.1)
 
- await myTensorTable('myDiv01', w, 2, 'w as weights')  
- await myTensorTable('myDiv01', i, 2, 'i as inputs ')  
+ await myTensorTable('myDiv04', w, 2, 'w as weights')  
+ await myTensorTable('myDiv04', i, 2, 'i as inputs ')  
 
- document.getElementById('myDiv01').innerHTML += 'b as Bias= '+ b.getValues()  +'<br><Br>'
+ document.getElementById('myDiv04').innerHTML += 'b as Bias= '+ b.getValues()  +'<br><Br>'
  
  myAlgorithm.scope(function() {
    var myDot = myAlgorithm.dotProduct(w, i)
    var mySum = myAlgorithm.add(myDot, b)
    var mySig = myAlgorithm.sigmoid(mySum)
-   document.getElementById('myDiv01').innerHTML += 'sigmoid(add( dot(w, i)+ b) ) = '+mySig.getValues()  +'<br>'
+   document.getElementById('myDiv04').innerHTML += 'sigmoid(add( dot(w, i)+ b) ) = '+mySig.getValues()  +'<br>'
  })
 
  myAlgorithm.scope(function() {
     var myDot = myAlgorithm.dotProduct(w, i)
     var mySum = myAlgorithm.add(myDot, b)
     var mySig = myAlgorithm.sinh(mySum)
-    document.getElementById('myDiv01').innerHTML += 'sinH(add( dot(w, i)+ b) ) = '+mySig.getValues()  +'<br>'
+    document.getElementById('myDiv04').innerHTML += 'sinH(add( dot(w, i)+ b) ) = '+mySig.getValues()  +'<br>'
  })
 
 
@@ -154,7 +191,7 @@ async function myTest01(){
     var myDot = myAlgorithm.dotProduct(w, i)
     var mySum = myAlgorithm.add(myDot, b)
     var mySig = myAlgorithm.relu(mySum)
-    document.getElementById('myDiv01').innerHTML += 'relu(add( dot(w, i)+ b) ) = '+mySig.getValues()  +'<br><hr>'
+    document.getElementById('myDiv04').innerHTML += 'relu(add( dot(w, i)+ b) ) = '+mySig.getValues()  +'<br><hr>'
  })
     
 
@@ -175,16 +212,8 @@ async function myTest01(){
 
 
 
-<div id="myDiv01">...Weights [3x3]<br><table border="3"><tbody><tr><td>0.10000000149011612</td><td>0.20000000298023224</td><td>0.30000001192092896</td></tr><tr><td>0.4000000059604645</td><td>0.5</td><td>0.6000000238418579</td></tr><tr><td>0.699999988079071</td><td>0.800000011920929</td><td>0.8999999761581421</td></tr><tr></tr></tbody></table><br>Inputs [3x3]<br><table border="3"><tbody><tr><td>1</td><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td><td>6</td></tr><tr><td>7</td><td>8</td><td>9</td></tr><tr></tr></tbody></table><br>flatten the 2D Inputs array into a 1D array<br><table border="3"><tbody><tr><td>1</td></tr><tr><td>2</td></tr><tr><td>3</td></tr><tr><td>4</td></tr><tr><td>5</td></tr><tr><td>6</td></tr><tr><td>7</td></tr><tr><td>8</td></tr><tr><td>9</td></tr><tr></tr></tbody></table><br>Bias Scalar = 2.299999952316284 <br><hr>Product of Weights x Inputs<br><table border="3"><tbody><tr><td>3</td><td>3.6000001430511475</td><td>4.200000286102295</td></tr><tr><td>6.600000381469727</td><td>8.100000381469727</td><td>9.600000381469727</td></tr><tr><td>10.199999809265137</td><td>12.59999942779541</td><td>15</td></tr><tr></tr></tbody></table><br>Table A<br><table border="3"><tbody><tr><td>3</td><td>2</td></tr><tr><td>5</td><td>4</td></tr><tr></tr></tbody></table><br>Table B<br><table border="3"><tbody><tr><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td></tr><tr></tr></tbody></table><br> A * B Matmul 2D = 14,19,26,35<br>A^T * B Matmul 2D = 21,37,16,28<br>B * A Matmul 2D = 21,16,37,28<br> B * A^T  Matmul 2D = 14,26,19,35<br><hr>w as weights<br><table border="3"><tbody><tr><td>0.699999988079071</td><td>-0.30000001192092896</td></tr><tr></tr></tbody></table><br>i as inputs <br><table border="3"><tbody><tr><td>0.10000000149011612</td><td>0.800000011920929</td></tr><tr></tr></tbody></table><br>b as Bias= 2.0999999046325684<br><br>sigmoid(add( dot(w, i)+ b) ) = 0.8732494115829468<br>sinH(add( dot(w, i)+ b) ) = 3.372180461883545<br>relu(add( dot(w, i)+ b) ) = 1.929999828338623<br><hr>Weights [3x3]<br><table border="3"><tbody><tr><td>0.10000000149011612</td><td>0.20000000298023224</td><td>0.30000001192092896</td></tr><tr><td>0.4000000059604645</td><td>0.5</td><td>0.6000000238418579</td></tr><tr><td>0.699999988079071</td><td>0.800000011920929</td><td>0.8999999761581421</td></tr><tr></tr></tbody></table><br>Inputs [3x3]<br><table border="3"><tbody><tr><td>1</td><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td><td>6</td></tr><tr><td>7</td><td>8</td><td>9</td></tr><tr></tr></tbody></table><br>flatten the 2D Inputs array into a 1D array<br><table border="3"><tbody><tr><td>1</td></tr><tr><td>2</td></tr><tr><td>3</td></tr><tr><td>4</td></tr><tr><td>5</td></tr><tr><td>6</td></tr><tr><td>7</td></tr><tr><td>8</td></tr><tr><td>9</td></tr><tr></tr></tbody></table><br>Bias Scalar = 2.299999952316284 <br><hr>Product of Weights x Inputs<br><table border="3"><tbody><tr><td>3</td><td>3.6000001430511475</td><td>4.200000286102295</td></tr><tr><td>6.600000381469727</td><td>8.100000381469727</td><td>9.600000381469727</td></tr><tr><td>10.199999809265137</td><td>12.59999942779541</td><td>15</td></tr><tr></tr></tbody></table><br>Table A<br><table border="3"><tbody><tr><td>3</td><td>2</td></tr><tr><td>5</td><td>4</td></tr><tr></tr></tbody></table><br>Table B<br><table border="3"><tbody><tr><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td></tr><tr></tr></tbody></table><br> A * B Matmul 2D = 14,19,26,35<br>A^T * B Matmul 2D = 21,37,16,28<br>B * A Matmul 2D = 21,16,37,28<br> B * A^T  Matmul 2D = 14,26,19,35<br><hr>w as weights<br><table border="3"><tbody><tr><td>0.699999988079071</td><td>-0.30000001192092896</td></tr><tr></tr></tbody></table><br>i as inputs <br><table border="3"><tbody><tr><td>0.10000000149011612</td><td>0.800000011920929</td></tr><tr></tr></tbody></table><br>b as Bias= 2.0999999046325684<br><br>sigmoid(add( dot(w, i)+ b) ) = 0.8732494115829468<br>sinH(add( dot(w, i)+ b) ) = 3.372180461883545<br>relu(add( dot(w, i)+ b) ) = 1.929999828338623<br><hr></div><br>
+<div id="myDiv04"></div><br>
 
-
-
-
-
-<script src="https://unpkg.com/deeplearn@0.4.2/dist/deeplearn.js"> </script> 
-
-
-From <a href="https://deeplearnjs.org/docs/tutorials/intro.html">https://deeplearnjs.org/docs/tutorials/intro.html</a><br>
 <input id="myButton04" type="button" value="Mean Square Difference" onclick="{
 const math = dl.ENV.math
                                                           
@@ -202,10 +231,185 @@ math.scope((keep) => {
   // Blocking call to actually read the values from average. Waits until the
   // GPU has finished executing the operations before returning values.
   // average is a Scalar so we use .get()
-  document.getElementById('myDiv04').innerHTML =  'The average = ' + average.get()
+  document.getElementById('myDiv05').innerHTML =  'The average = ' + average.get()
 });                                                          
 }">
 
 
 
-<div id="myDiv04">The average = 1.5</div><br>
+<div id="myDiv05"></div><br>
+
+<input id="myButton01" type="button" value="Quadratic y = a * x^2 + b * x + c" onclick="{
+    var graph = new deeplearn.Graph();
+    var x_1 = graph.placeholder('x', []);
+    var a = graph.variable('a', deeplearn.Scalar.new(Math.random()));
+    var b = graph.variable('b', deeplearn.Scalar.new(Math.random()));
+    var c = graph.variable('c', deeplearn.Scalar.new(Math.random()));
+    var order2 = graph.multiply(a, graph.square(x_1));
+    var order1 = graph.multiply(b, x_1);
+    var y_1 = graph.add(graph.add(order2, order1), c);
+    var yLabel_1 = graph.placeholder('y label', []);
+    var cost_1 = graph.meanSquaredCost(y_1, yLabel_1);
+    var math = dl.ENV.math;
+    var session_1 = new deeplearn.Session(graph, math);
+
+
+    document.getElementById('myDiv06').innerHTML   =  'Solving the Quadratic y = 3x^2 + 2x + 1<br>'      
+    document.getElementById('myDiv06').innerHTML   +=  'By training the browser to work towards a given line with error<br>'   
+    document.getElementById('myDiv06').innerHTML   +=  'Defined by [0,1.1],[1,5.9],[2,16.8],[3,33.9]<br>'                        
+    document.getElementById('myDiv06').innerHTML   +=  '<br>using x = 4 the Quadratic result should be about 57.0 +- 2<br>' 
+
+
+    math.scope(function (keep) {
+        var result = session_1.eval(y_1, [{ tensor: x_1, data: deeplearn.Scalar.new(4) }]);
+
+
+       document.getElementById('myDiv06').innerHTML   += 'Initial Guess =' + result.getValues()+'<br><br>'
+
+        var xs = [
+            deeplearn.Scalar.new(0), deeplearn.Scalar.new(1), deeplearn.Scalar.new(2),
+            deeplearn.Scalar.new(3)
+        ];
+        var ys = [
+            deeplearn.Scalar.new(1.1), deeplearn.Scalar.new(5.9), deeplearn.Scalar.new(16.8),
+            deeplearn.Scalar.new(33.9)
+        ];
+        var shuffledInputProviderBuilder = new deeplearn.InCPUMemoryShuffledInputProviderBuilder([xs, ys]);        
+        var _a = shuffledInputProviderBuilder.getInputProviders();
+        var xProvider = _a[0];
+        var yProvider = _a[1];
+        var NUM_BATCHES = 20;
+        var BATCH_SIZE = xs.length;
+        var LEARNING_RATE = .01;
+        var optimizer = new deeplearn.SGDOptimizer(LEARNING_RATE);
+       
+
+         for (var i = 0; i < NUM_BATCHES; i++) {
+            var costValue = session_1.train(cost_1, [{ tensor: x_1, data: xProvider }, { tensor: yLabel_1, data: yProvider }], BATCH_SIZE, optimizer, deeplearn.CostReduction.MEAN);
+
+            document.getElementById('myDiv06').innerHTML   += 'average cost: ' + costValue.get() + '<br>'
+        }
+        result = session_1.eval(y_1, [{ tensor: x_1, data: deeplearn.Scalar.new(4) }]);
+
+       document.getElementById('myDiv06').innerHTML   += '<br><br>After training '+NUM_BATCHES+' batches with a learning rate of '+ LEARNING_RATE+ '<br>'                                                                 
+       document.getElementById('myDiv06').innerHTML   += 'With an input of 4 the output =' + result.getValues() + '<br>'                                                                 
+                                                                                                                                                                                                                                
+    });                                                           
+                                                                            
+                                                                            
+}"><br>
+
+<div id="myDiv06"></div><br>
+
+Batches:<input id="myText01" type="number" value="20"> Note: 100 takes a few seconds longer to train<br>
+Learning Rate:<input id="myText02" type="text" value="0.01"> Note: Small changes may inprove the learning<br>
+Curve fit when x=<input id="myX0" type="text" value="0" size="3"> y=<input id="myY0" type="text" value="1.1" size="3"><br>
+Curve fit when x=<input id="myX1" type="text" value="1" size="3"> y=<input id="myY1" type="text" value="5.9" size="3"><br>
+Curve fit when x=<input id="myX2" type="text" value="2" size="3"> y=<input id="myY2" type="text" value="16.8" size="3"><br>
+Curve fit when x=<input id="myX3" type="text" value="3" size="3"> y=<input id="myY3" type="text" value="33.9" size="3"><br><br>
+
+Solve for x=<input id="myText14" type="text" value="4"><br><br><br>
+
+
+
+<input id="myButton02" type="button" value="Dynamic Quadratic" onclick="{
+
+  document.getElementById('myButton02').style.backgroundColor = 'red'  
+  setTimeout(function() {
+                                                                 
+    var graph = new deeplearn.Graph();
+    var x_1 = graph.placeholder('x', []);
+    var a = graph.variable('a', deeplearn.Scalar.new(Math.random()));
+    var b = graph.variable('b', deeplearn.Scalar.new(Math.random()));
+    var c = graph.variable('c', deeplearn.Scalar.new(Math.random()));
+    var order2 = graph.multiply(a, graph.square(x_1));
+    var order1 = graph.multiply(b, x_1);
+    var y_1 = graph.add(graph.add(order2, order1), c);
+    var yLabel_1 = graph.placeholder('y label', []);
+    var cost_1 = graph.meanSquaredCost(y_1, yLabel_1);
+    var math = dl.ENV.math;
+    var session_1 = new deeplearn.Session(graph, math);
+
+
+    document.getElementById('myDiv07').innerHTML   =  'Solving the Quadratic y = ax^2 + bx + c<br>'      
+    document.getElementById('myDiv07').innerHTML   += 'By training the browser to work towards the given line above<br>'  
+    document.getElementById('myDiv07').innerHTML   += 'without any knowledge of a, b or c<br>'    
+
+
+
+
+    math.scope(function (keep) {
+        var result = session_1.eval(y_1, [{ tensor: x_1, data: deeplearn.Scalar.new(4) }]);
+        //console.log(result.shape);
+        //console.log(result.getValues());
+
+       document.getElementById('myDiv07').innerHTML   += 'Initial Guess =' + result.getValues()+'<br><br>'
+
+        var xs = [
+            deeplearn.Scalar.new(document.getElementById('myX0').value), 
+            deeplearn.Scalar.new(document.getElementById('myX1').value), 
+            deeplearn.Scalar.new(document.getElementById('myX2').value),
+            deeplearn.Scalar.new(document.getElementById('myX3').value)
+        ];
+        var ys = [
+            deeplearn.Scalar.new(document.getElementById('myY0').value), 
+            deeplearn.Scalar.new(document.getElementById('myY1').value), 
+            deeplearn.Scalar.new(document.getElementById('myY2').value),
+            deeplearn.Scalar.new(document.getElementById('myY3').value)
+        ];
+        var shuffledInputProviderBuilder = new deeplearn.InCPUMemoryShuffledInputProviderBuilder([xs, ys]);        
+        var _a = shuffledInputProviderBuilder.getInputProviders();
+        var xProvider = _a[0];
+        var yProvider = _a[1];
+        var NUM_BATCHES = document.getElementById('myText01').value;
+        var BATCH_SIZE = xs.length;
+        var LEARNING_RATE = document.getElementById('myText02').value;
+        var optimizer = new deeplearn.SGDOptimizer(LEARNING_RATE);
+        for (var i = 0; i < NUM_BATCHES; i++) {
+            var costValue = session_1.train(cost_1, [{ tensor: x_1, data: xProvider }, { tensor: yLabel_1, data: yProvider }], BATCH_SIZE, optimizer, deeplearn.CostReduction.MEAN);
+           document.getElementById('myDiv07').innerHTML   += 'average cost: ' + costValue.get() + '<br>'
+        }
+        result = session_1.eval(y_1, [{ tensor: x_1, data: deeplearn.Scalar.new(document.getElementById('myText14').value) }]);
+        document.getElementById('myDiv07').innerHTML   += '<br><br>After training '+NUM_BATCHES+' batches with a learning rate of '+ LEARNING_RATE+ '<br>'                                                                 
+        document.getElementById('myDiv07').innerHTML   += 'With an input of '+document.getElementById('myText14').value+' the output =' + result.getValues() + '<br>'                                                                 
+                                                                                                                                                                                                                                  
+    });  
+    
+    document.getElementById('myButton02').style.backgroundColor = 'green'                                                           
+  }, 100)                                                                            
+                                                                 
+                                                                 
+}"><br>
+
+<div id="myDiv07"></div><br>
+
+<input id="myButton01" type="button" value="Real Life Use of Matrix Math" onclick="{
+
+    class myNDArrayMath extends dl.NDArrayMath {
+       inverse2DSquare(b)  {       
+          var myInverseMultiplier  = 1 / ( (b.getValues()[0] * b.getValues()[3]) - (b.getValues()[1] * b.getValues()[2]) )
+          var myMatrixConverted = dl.Array2D.new([2, 2], [b.getValues()[3]*myInverseMultiplier, b.getValues()[1]*-1*myInverseMultiplier, b.getValues()[2]*-1*myInverseMultiplier, b.getValues()[0]*myInverseMultiplier])
+          return myMatrixConverted
+      }
+   }
+
+   document.getElementById('myDiv08').innerHTML = 'deeplearnjs Version = ' + dl.version + '<br><br>'
+
+   var myMath = dl.ENV.math;
+   var myClass = new myNDArrayMath()                                                                           
+   document.getElementById('myDiv08').innerHTML += 'Child $3.00 bus, $3.50 train, Adult $3.20 bus, $3.60 train <br>' 
+   document.getElementById('myDiv08').innerHTML += 'Total bus = $118.40, Total train = $135.20. How many Children and Adults? <br><br>' 
+
+   var myMatrixOriginal = dl.Array2D.new([2, 2], [3, 3.5, 3.2, 3.6]);
+   var myVector1D = dl.Array1D.new([118.4, 135.2]);
+
+   var myResult1 = myClass.inverse2DSquare(myMatrixOriginal)
+   document.getElementById('myDiv08').innerHTML += 'Intermediate Inverse Matrix shape = ' + myResult1.shape+ ' Intermediate Values = ' + myResult1.getValues() +'<br>'   
+
+   var myResult2 =  myMath.vectorTimesMatrix(myVector1D, myResult1);
+   document.getElementById('myDiv08').innerHTML +=   'Final Result shape:'+ myResult2.shape  +   ',  Train and Bus results: Children = ' + Math.round(myResult2.getValues()[0]) +   ',  Adults = '  +  Math.round(myResult2.getValues()[1])                                            
+
+}"><br>
+
+
+<div id="myDiv08"></div><br>
