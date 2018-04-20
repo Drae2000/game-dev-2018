@@ -1,0 +1,400 @@
+<html>
+<head>
+<title>GameTemplate</title>
+
+<h1>controls:player 1 wasd, player 2 ijkl</h1>
+
+
+<script> 
+//Global variables here
+
+
+myBgPosY = 0;     // present vertical position
+myBgPosX = 0;    // present horizonal position
+myBgHeight = 402;    // height of background image
+myBgWidth = 753;  // width of background image
+myBgSpeedYdown = 1;    // speed moving down 
+myBgSpeedXright = 0;    // speed moving right
+
+
+
+
+
+
+<!-- ********************  Background Scrolling **************************  -->
+
+
+// myScroll function controls the moving of the background image
+
+
+function myScroll() {
+
+
+   myAuto()
+   checkAll()
+
+
+
+
+   myBgPosY +=  myBgSpeedYdown;
+   if (myBgPosY > myBgHeight) {myBgPosY = 0}
+   if (myBgPosY <0) {myBgPosY = myBgHeight}
+
+
+   myBgPosX +=  myBgSpeedXright;
+   if (myBgPosX > myBgWidth) {myBgPosX = 0}
+   if (myBgPosX <0) {myBgPosX = myBgWidth}
+
+
+
+
+   myBgObject.style.backgroundPosition = myBgPosX+" " + myBgPosY;
+}
+
+
+
+
+// ********************  Object Detection Starts below **************************  -->
+
+
+// myHitXY function determines if any object has hit an x, y location. Note it is better to use the myHitOther function
+ 
+function myHitXY(my1,X,Y){
+
+
+   left1  = parseInt(document.getElementById(my1).style.left)
+   right1   = left1 + parseInt(document.getElementById(my1).style.width)
+
+
+   top1    = parseInt(document.getElementById(my1).style.top)   
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+
+
+
+
+   if ((left1   <= X ) &&      	   
+       (right1  >= X ) &&
+       (top1    <= Y ) &&
+       (bottom1 >= Y ) ){
+       return true
+   }
+}
+
+
+// myHitOther function determines if two obejcts have hit each other. 
+
+
+function myHitOther(my1,my2){
+
+
+   left1   = parseInt(document.getElementById(my1).style.left)
+   right1  = left1 + parseInt(document.getElementById(my1).style.width)
+   top1    = parseInt(document.getElementById(my1).style.top)   
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+
+
+
+
+
+
+
+
+
+
+   left2   = parseInt(document.getElementById(my2).style.left)
+   right2  = left2 + parseInt(document.getElementById(my2).style.width)
+   top2    = parseInt(document.getElementById(my2).style.top)   
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
+
+
+   if ((right1  >=  left2  ) &&      	   
+       (bottom1 >=  top2   ) &&
+       (left1   <=  right2 ) &&
+       (top1    <=  bottom2) ){
+       return true
+   }
+}
+
+
+
+
+
+
+// Group all your detection code here
+ 
+function checkAll(){
+ 
+  if (myHitXY('move1','move2')) {
+    document.getElementById('myShowDiv3').innerHTML = 'You hit the red dot'
+  } else {document.getElementById('myShowDiv3').innerHTML = ''}
+ 
+  if (myHitOther('move1','move2')) {
+      document.getElementById('myShowDiv3').innerHTML = 'You hit object move2'
+  }
+
+
+
+
+  if (myHitOther('bullet1','move2')) {
+      document.getElementById('myShowDiv3').innerHTML = 'The bullet hit move 2,You Win' ,alert("You win! Now you will go to the second level"); location= 'con2'
+      document.getElementById('bullet1','move2').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+
+
+  }
+
+
+}
+ 
+// ********************  Object Detection  finished **************************  -->
+
+
+
+
+
+
+
+
+
+
+// ********************  Object Motion Below **************************  -->
+
+
+
+
+
+
+
+
+document.mySpeedX = 0;
+document.mySpeedY = 0;
+
+
+function myAuto(){
+
+
+  if(parseInt(document.getElementById('move1').style.left) > window.innerWidth - document.getElementById('move1').width){
+       document.mySpeedX *= -1
+   }
+
+
+  document.getElementById('move1').style.left = parseInt(document.getElementById('move1').style.left)+document.mySpeedX+'px'
+  document.getElementById('move1').style.top  = parseInt(document.getElementById('move1').style.top)+document.mySpeedY+'px'
+
+
+
+
+
+
+// auto moving "move2" should occur here similar to the above.
+//folowing code showes where move 2 and move3, move4 etc are located
+
+
+document.getElementById('myShowDiv1').innerHTML = 'move1 x='+parseInt(document.getElementById('move1').style.left) +
+', y='+parseInt(document.getElementById('move1').style.top)
+
+
+document.getElementById('myShowDiv2').innerHTML = 'move2 x='+parseInt(document.getElementById('move2').style.left) +
+', y='+parseInt(document.getElementById('move2').style.top) +
+'<br> move2 x='+parseInt(document.getElementById('move2').style.left) +', y='+parseInt(document.getElementById('move2').style.top) +
+'<br> move2 x='+parseInt(document.getElementById('move2').style.left) +', y='+parseInt(document.getElementById('move2').style.top)
+
+
+
+
+
+
+
+
+}
+
+
+
+
+function myGunPrep(){
+
+
+    document.getElementById('bullet1').style.visibility  = 'visible'
+    document.getElementById('bullet1').style.left  = document.getElementById('move1').style.left
+    document.getElementById('bullet1').style.top   = document.getElementById('move1').style.top
+    
+   clearInterval(document.myShot)
+   document.myShot = setInterval('myGun()', 10) // calls the function every 30 mille seconds
+
+
+}
+
+
+
+
+function myGun(){
+
+
+    document.getElementById('bullet1').style.left  = parseInt(document.getElementById('bullet1').style.left) + 20 + 'px'
+
+
+}
+
+
+
+
+</script>
+
+
+</head>
+
+<!-- ********************  Here the webpage begins **************************  -->
+
+
+
+
+<!-- ********************  onkeypress just for webpages is useless on mobile apps **************************  -->
+
+
+<body background="http://a1star.com/images/star--background-seamless-repeating7.jpg"   
+
+
+
+
+onkeydown="{
+  document.getElementById('myShowDiv4').innerHTML = String.fromCharCode(event.keyCode) + ' = ' + event.keyCode
+  
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'D'){ document.getElementById('move1').style.left  = parseInt(document.getElementById('move1').style.left)+5+'px'; checkAll();}   // small 'D' key go right
+ 
+ 
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'A'){ document.getElementById('move1').style.left  = parseInt(document.getElementById('move1').style.left)-5+'px'; checkAll();}   // small 'A' key go left
+ 
+
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'W'){ document.getElementById('move1').style.top  = parseInt(document.getElementById('move1').style.top)-5+'px'; checkAll();}   // small 'W' key go up
+ 
+  
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'S'){ document.getElementById('move1').style.top  = parseInt(document.getElementById('move1').style.top)+5+'px'; checkAll();}   // small 'S' key go down
+ 
+ 
+  
+
+ document.getElementById('myShowDiv4').innerHTML = String.fromCharCode(event.keyCode) + ' = ' + event.keyCode
+  
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'L'){ document.getElementById('move2').style.left  = parseInt(document.getElementById('move2').style.left)+5+'px'; checkAll();}   // small 'L' key go right
+ 
+ 
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'J'){ document.getElementById('move2').style.left  = parseInt(document.getElementById('move2').style.left)-5+'px'; checkAll();}   // small 'J' key go left
+ 
+
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'I'){ document.getElementById('move2').style.top  = parseInt(document.getElementById('move2').style.top)-5+'px'; checkAll();}   // small 'I' key go up
+ 
+  
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'K'){ document.getElementById('move2').style.top  = parseInt(document.getElementById('move2').style.top)+5+'px'; checkAll();}   // small 'K' key go down
+ 
+  
+  
+
+  
+  
+ 
+ 
+ 
+}"
+    
+    
+    
+    >
+
+
+
+
+<script>        // This object must be after the body tag
+
+
+myBgObject = eval('document.body');
+
+
+</script>
+
+
+
+
+
+
+
+
+<h2 align=center  style="https://previews.123rf.com/images/krol/krol1608/krol160800014/60555809-seamless-background-for-games-apps-or-mobile-development-cartoon-nature-landscape-with-jungle-illust.jpg"> Game Base by Drae</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ********************  Following should be all your images **************************  -->
+
+
+
+
+
+
+<img  id="move1"  src="https://vignette.wikia.nocookie.net/crashban/images/8/84/Crash_Bandicoot_The_Wrath_of_Cortex_Blue_Spaceship.png/revision/latest?cb=20170121235447"  style="position:absolute; width:200px; height:200px; left:100px; top:700px" onClick="myGunPrep()">  
+ 
+<img  id="move2"  src="https://vignette.wikia.nocookie.net/the-zula-patrol/images/2/21/Spaceship.png/revision/latest?cb=20151214061856" style="position:absolute; width:200px; height:200px;  left:600px; top:700px;"/>
+
+
+
+
+<input type=button value="Fire" onClick="myGunPrep()">
+
+
+
+
+<img  id="bullet1" src="http://vignette4.wikia.nocookie.net/mario/images/f/fa/494px-Fireball_Artwork_-_Super_Mario_3D_World.png/revision/latest?cb=20131129222802" style="position:absolute; width:80px; height:80px;  left:500px; top:240px; visibility:hidden"/> 
+
+
+
+
+<!-- ********************  General game output **************************  -->
+
+
+
+
+<div id="myShowDiv1" style="width:300px; background-color:green">out 1</div>
+<div id="myShowDiv2" style="width:300px; background-color:green">out 2</div>
+<div id="myShowDiv3" style="width:300px; background-color:green">out 3</div>
+<div id="myShowDiv4" style="width:300px; background-color:green">out 4</div>
+
+
+
+
+
+
+
+
+<input type=button value="Back" style="font-size:25px" onclick="{window.history.back()}"><br><br>
+
+<input type=range id="myHealth" value=3 Max=100>
+
+
+</body>
+</html>
+
+
+
+<li><a href="http://localhost:50000/">construct 2</a><br>
+
+<html>
+
+<head></head>
+
+<body>
+    
+    
