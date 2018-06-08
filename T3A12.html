@@ -1,98 +1,114 @@
 <h2 align=center>Arrays by Drae</h2>
-First button sets and shows the myStuff array.
-Second button sets and shows the myRandom array.<br>
+
 
 <input type=button value="Run myStuff" onclick="
+  //alert(Math.floor(Math.random()*9+1)  )
 
-  myStuff = new Array()
-  myStuff[0] = 'Cell phone <br>'
-  myStuff[1] = 'Shoes<br>' 
-  myStuff[2] = 'Shirt<br>' 
-  myStuff[3] = 'Scarf<br>' 
-  myStuff[4] = 'Hat<br>' 
-  myStuff[5] = 'Sweater<br>' 
-  myStuff[6] = 'Pants<br>'
-  myStuff[7] = 'Socks<br>'
-  myStuff[8] = 'Trench Coat<br>'
-  myStuff[9] = 'Ski Mask<br>'
 
-  document.getElementById('myDiv01').innerHTML = myStuff 
-  
+myStuff = new Array()
+myStuff[0] = 'Cell Phone<br>'
+myStuff[1] = 'Shoes<br>'
+myStuff[2] = 'Pants<br>'
+myStuff[3] = 'Car<br>'
+myStuff[4] = 'House<br>'
+myStuff[5] = 'Stove<br>'
+myStuff[6] = 'Toilet<br>'
+
+document.getElementById('myDiv01').innerHTML += myStuff[0] + myStuff[1] + myStuff[2]+ myStuff[3]+ myStuff[4] + myStuff[5] + myStuff[6]
+
 "><br><br>
 
+<div id="myDiv01"></div>
 
-Loop this amount <input type=text id="myText01" size=6 value= 5><br> 
+<input type=button value="Run myStuff" onclick="
+  //alert(Math.floor(Math.random()*9+1)  )
 
-<input type=button value="Run myRandom" onclick=" 
 
-  
+myStuff = new Array()
+myStuff[0] = 'Cell Phone'
+myStuff[1] = 'Shoes'
+myStuff[2] = 'Pants'
+myStuff[3] = 'Car'
+myStuff[4] = 'House'
+myStuff[5] = 'Stove'
+myStuff[6] = 'Toilet'
 
-    myRandomNumber = new Array() 
 
-  
+ for(myLoop=0; myLoop <=7; myLoop++){
 
-  
+document.getElementById('myDiv03').innerHTML += myStuff[myLoop] + '<br>'
 
-    myRandomNumber[0] =  Math.floor(Math.random()*9+1) 
+}
 
-  
+"><br><br>
 
-   myTemp = 0
+<div id="myDiv03"></div>
 
-   myValue = parseInt(document.getElementById('myText01').value) 
-   
-   for (myLoop=1; myLoop <= myValue; myLoop++){
-  
-    document.getElementById('myDiv02').innerHTML +=  Math.floor(Math.random()*9+1) + ' <br>' 
+
+Loop this amount <input type=text id="myText01" size=6 value= 5><br>
+
+<input type=button value="Run myRandom" onclick="
+
+myInput = document.getElementById('myText01').value
+
+myRandomNumber = new Array()
+
+ for(x=1; x<=myInput; x++){
+
+myRandomNumber[x] = Math.floor(Math.random()*99+1)
+ 
+}
+
+document.getElementById('myDiv02').innerHTML = ''
+ for(x=1; x<=myInput; x++){
+
+document.getElementById('myDiv02').innerHTML += myRandomNumber[x] + ' <br>'
+
+  }
+"><br>
+
+<div id="myDiv02"></div><br>
+
+
+Loop this amount <input type=text id="myText02" size=6 value= 5><br>
+
+<input type=button value="Run myRandom Sort" onclick="
+
+myInput = document.getElementById('myText02').value
+
+ myRandomNumber = new Array()
+
+  for(myLoop=1; myLoop<=myInput; myLoop++){
+ myRandomNumber[myLoop] = Math.floor(Math.random()*99+1)
+ 
+}
+
+ document.getElementById('myDiv04').innerHTML = ''
+ for(myLoop=1; myLoop<=myInput; myLoop++){
+    document.getElementById('myDiv04').innerHTML += myRandomNumber[myLoop] + ' <br>'
+
+}
+
+
+ for(myX=1; myX<=myInput; myX++){
+   for(myLoop=1; myLoop<=myInput; myLoop++){
+   if(myRandomNumber[myLoop]  > myRandomNumber[myLoop + 1] ){
+      myTemp = myRandomNumber[myLoop]
+        myRandomNumber[myLoop] = myRandomNumber[myLoop + 1]
+           myRandomNumber[myLoop + 1] = myTemp
+
+     }
 
   }
 
-  
+}
+document.getElementById('myDiv04').innerHTML += 'After Sorting' 
+for(myLoop=1; myLoop<=myInput; myLoop++){
+document.getElementById('myDiv04').innerHTML +=  '<br> ' + myRandomNumber[myLoop]
 
-  
+}
 
-// sort the values 
+"><br>
 
-    for (myLoop=0; myLoop <= 7; myLoop++ ){ 
-
-       if (myRandomNumber[myLoop]  > myRandomNumber[myLoop + 1] ){ 
-
-           myTemp = myRandomNumber[myLoop] // you finish two more lines 
-
-     
-           
-
-             
-
-       } 
-
-   }   
-
-  
-
-  
-
-  
-
-// print them again 
-
-  
- 
-
-  
-
-"><br> 
-
-  
-
-<div id="myDiv02"></div> 
-
-
-<id id="myDiv01"></div>
-
-
-
-
-
-
+<div id="myDiv04"></div>
 
